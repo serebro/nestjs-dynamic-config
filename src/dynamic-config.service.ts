@@ -1,11 +1,10 @@
 import { Inject, Injectable, Logger, OnModuleDestroy } from '@nestjs/common';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, Observable } from 'rxjs';
 import { filter, first, map } from 'rxjs/operators';
 import { isNotNil } from './utils';
 import { ConfigOptionsToken, DynamicConfigSource } from './const';
 import { ConfigSource, ConfigSourceInitOptions, DynamicConfigOptions, Finalizer } from './types';
-import { FileConfigSource } from './sources/file.config-source';
-import { StreamConfigSource } from './sources/stream.config-source';
+import { FileConfigSource, StreamConfigSource } from './sources';
 
 const context = 'ConfigService';
 
@@ -21,7 +20,7 @@ export class DynamicConfigService<Config> implements OnModuleDestroy {
   }
 
   async config(): Promise<Config> {
-    return this.configStream().pipe(first()).toPromise();
+    return firstValueFrom(this.configStream().pipe(first()));
   }
 
   configStream(): Observable<Config> {

@@ -3,7 +3,10 @@
   "version": "0.1.1",
   "description": "Nest.js Dynamic Configuration Module",
   "main": "dist/index.js",
-  "repository": "git@github.com:headline-1/nestjs-dynamic-config.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/serebro/nestjs-dynamic-config.git"
+  },
   "author": "Krzysztof Miemiec <krzysztof.miemiec@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -11,47 +14,52 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && tsc",
+    "build": "npm run clean && tsc",
     "clean": "rimraf ./dist",
     "lint": "eslint ./src --ext .ts",
-    "pretest": "yarn lint",
+    "pretest": "npm run lint",
     "release:version": "standard-version",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
   "peerDependencies": {
-    "@nestjs/common": "^7.4.2",
-    "@nestjs/core": "^7.4.2",
+    "@nestjs/common": "^8.2.3",
+    "@nestjs/core": "^8.2.3",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^6.6.2"
+    "rxjs": "^7.4.0"
   },
   "dependencies": {
     "lodash.get": "^4.4.2"
   },
   "optionalDependencies": {
-    "chokidar": "^3.4.2"
+    "chokidar": "^3.5.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@nestjs/common": "^7.4.2",
-    "@nestjs/core": "^7.4.2",
-    "@nestjs/testing": "^7.4.2",
-    "@types/jest": "^25.2.3",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@nestjs/common": "^8.2.3",
+    "@nestjs/core": "^8.2.3",
+    "@nestjs/testing": "^8.2.3",
+    "@types/jest": "^27.0.3",
     "@types/lodash.get": "^4.4.6",
-    "@types/node": "^14.0.27",
-    "@typescript-eslint/eslint-plugin": "^3.8.0",
-    "@typescript-eslint/parser": "^3.8.0",
-    "chokidar": "^3.4.2",
-    "eslint": "^7.6.0",
-    "eslint-plugin-import": "^2.22.0",
-    "husky": "^4.2.5",
-    "jest": "^26.2.2",
+    "@types/node": "^16.11.11",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "chokidar": "^3.5.2",
+    "eslint": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "husky": "^7.0.4",
+    "jest": "^27.4.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.6.2",
-    "standard-version": "^8.0.2",
-    "ts-jest": "^26.1.4",
-    "typescript": "^3.9.7"
-  }
+    "rxjs": "^7.4.0",
+    "standard-version": "^9.3.2",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.5.2"
+  },
+  "types": "./dist/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/serebro/nestjs-dynamic-config/issues"
+  },
+  "homepage": "https://github.com/serebro/nestjs-dynamic-config#readme"
 }
