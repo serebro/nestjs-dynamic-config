@@ -12,6 +12,7 @@ const common_1 = require("@nestjs/common");
 const const_1 = require("./const");
 const dynamic_config_service_1 = require("./dynamic-config.service");
 let DynamicConfigModule = DynamicConfigModule_1 = class DynamicConfigModule {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     static forRoot(options) {
         return {
             module: DynamicConfigModule_1,

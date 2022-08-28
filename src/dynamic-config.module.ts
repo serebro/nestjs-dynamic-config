@@ -6,6 +6,7 @@ import { DynamicConfigService } from './dynamic-config.service';
 @Global()
 @Module({})
 export class DynamicConfigModule {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   static forRoot<Config>(options: DynamicConfigOptions): DynamicModule {
     return {
       module: DynamicConfigModule,

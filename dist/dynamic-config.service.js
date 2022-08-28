@@ -27,8 +27,7 @@ const rxjs_1 = require("rxjs");
 const operators_1 = require("rxjs/operators");
 const utils_1 = require("./utils");
 const const_1 = require("./const");
-const file_config_source_1 = require("./sources/file.config-source");
-const stream_config_source_1 = require("./sources/stream.config-source");
+const sources_1 = require("./sources");
 const context = 'ConfigService';
 let DynamicConfigService = class DynamicConfigService {
     constructor(options) {
@@ -47,9 +46,9 @@ let DynamicConfigService = class DynamicConfigService {
     createDataSource(options) {
         switch (this.options.source) {
             case const_1.DynamicConfigSource.FILE:
-                return new file_config_source_1.FileConfigSource(Object.assign(Object.assign({}, options), { configFilePath: this.options.configFilePath }));
+                return new sources_1.FileConfigSource(Object.assign(Object.assign({}, options), { configFilePath: this.options.configFilePath }));
             case const_1.DynamicConfigSource.STREAM:
-                return new stream_config_source_1.StreamConfigSource(Object.assign(Object.assign({}, options), { stream: this.options.configStream }));
+                return new sources_1.StreamConfigSource(Object.assign(Object.assign({}, options), { stream: this.options.configStream }));
             default:
                 throw new Error(`Invalid DynamicConfigSource '${options.source}'.`);
         }
